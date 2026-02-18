@@ -1,0 +1,52 @@
+---
+import '../styles/global.css';
+import DarkToggle from './darkToggle.astro';
+---
+
+<aside class="navbar dark:bg-lighterGray bg-gray-100 h-full fixed lg:left-0 top-0 lg:w-64 w-full z-10">
+  <div class="flex flex-col p-4 h-full">
+    <div class="flex h-1/3 pt-12 md:pt-4 lg:pt-2 xl:pt-1 items-center justify-center">
+      <a href="/" class="w-40 h-40 mx-auto mb-4 rounded-full cursor-pointer transition-transform duration-300 hover:scale-105 overflow-hidden bg-gray-300 dark:bg-gray-700">
+        <img src="/GOT.jpeg" alt="Bhargav profile" class="w-40 h-40 object-cover rounded-full" />
+      </a>
+    </div>
+    <nav class="flex flex-col space-y-4"> 
+      <a href="/" class="text-gray-800 hover:text-black p-2 dark:text-titlePurple transition-all duration-300 hover:bg-gray-200 rounded-lg">Home</a>
+      <a href="/resume.pdf" target="_blank" class="text-gray-800 dark:text-titlePurple hover:text-black p-2 transition-all duration-300 hover:bg-gray-200 rounded-lg">Resume</a>
+      <a href="/blog" class="text-gray-800 hover:text-black p-2 dark:text-titlePurple transition-all duration-300 hover:bg-gray-200 rounded-lg">Blog</a>
+      <a href="/projects" class="text-gray-800 hover:text-black p-2 dark:text-titlePurple transition-all duration-300 hover:bg-gray-200 rounded-lg">Projects</a>
+    </nav>
+
+    <div class="flex space-x-4 mt-auto justify-center items-center"> 
+      <a href="https://github.com/" target="_blank" rel="noopener noreferrer" class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-200 overflow-hidden">
+          <img src="/gitBlack.svg" class="w-6 h-6" />
+      </a>
+        <a href="https://www.linkedin.com/in/bhargavgutta/" target="_blank" rel="noopener noreferrer" class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-200 overflow-hidden">
+          <img src="/icons8-linkedin.svg" class="w-6 h-6" />
+      </a>
+      <a href="mailto:bhargavgutta910@gmail.com" class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-200 overflow-hidden">
+          <img src="/mail.svg" class="w-6 h-6" />
+      </a>
+      <DarkToggle class = "w-10 h-10 flex items-center justify-center rounded-full bg-gray-200 overflow-hidden"></DarkToggle>
+  </div>
+  
+  </div>
+  <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const hamburger = document.querySelector('.hamburger');
+    const navbar = document.querySelector('aside.navbar');
+
+    if (hamburger && navbar) {
+        hamburger.addEventListener('click', function() {
+            navbar.classList.toggle('open');
+        });
+    }
+});
+  </script>
+</aside>
+
+<style>
+  :global(aside.navbar.open) {
+      transform: translateX(0) translateY(0);
+  }
+</style>

@@ -1,9 +1,7 @@
 ---
-import '../styles/global.css';
 import Header from '../components/header.astro';
 import Navbar from '../components/Navbar.astro';
-import About from "../components/About.astro";
-import Layout from "../layouts/Layout.astro";
+import '../styles/global.css';
 ---
 
 <html lang="en">
@@ -12,7 +10,7 @@ import Layout from "../layouts/Layout.astro";
 		<link rel="icon" type="image/svg+xml" href="/favicon.ico" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<meta name="description" content="Hi! I'm Bhargav Gutta, a full stack developer, and this is my Portfolio Website, Check out my hobbies, past work, blogs, and see what I'm currently working on!">
+		<meta name="description" content="Bhargav Gutta's Portfolio Website">
 		<meta property="og:title" content="Bhargav's Portfolio">
 		<meta property="og:description" content="Bhargav Gutta's Portfolio Website">
 		<meta property="og:image" content="/newWebsite.jpg">
@@ -27,24 +25,19 @@ import Layout from "../layouts/Layout.astro";
 			  "@type": "Person",
 			  "name": "Bhargav Gutta",
 			  "url": "https://dev.gutta.com/",
-			  "image": "https://dev.gutta.com/public/IMG_0199.jpg",
 			  "sameAs": [
 				"https://www.linkedin.com/in/bhargavgutta/",
 				"https://github.com/bhargavgutta",
 				"https://dev.gutta.com/"
-			  ],
-			  "jobTitle": "Full Stack Developer",
-			  "worksFor": {
-				"@type": "Organization",
-				"name": "Your Company"
-			  }  
+			  ]
 			}
-			</script>
-		<title>Bhargav Gutta</title>
+		</script>
 	</head>
-<body class = "dark:bg-customGray bg-gray-50">
-	<Navbar></Navbar>
-	<Header></Header>
-		<About></About>
-</body>
+	<body class="dark:dark justify-center h-screen dark:bg-customGray bg-gray-50">
+		<Header></Header>
+		<Navbar></Navbar>
+        <div class="mx-auto blog-post prose pb-20 text-lg dark:text-gray-200 dark:text-opacity-70 lg:ml-[30%] leading-relaxed md:w-[60%] flex flex-col items-start pt-3 space-y-3">
+    <slot></slot>
+        </div>
+	</body>
 </html>
