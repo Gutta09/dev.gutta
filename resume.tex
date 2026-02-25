@@ -1,0 +1,207 @@
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+
+% fontawesome
+\usepackage{fontawesome5}
+
+% fixed width
+\usepackage[scale=0.90,lf]{FiraMono}
+
+% light-grey
+\definecolor{light-grey}{gray}{0.83}
+\definecolor{dark-grey}{gray}{0.3}
+\definecolor{text-grey}{gray}{.08}
+
+\DeclareRobustCommand{\ebseries}{\fontseries{eb}\selectfont}
+\DeclareTextFontCommand{\texteb}{\ebseries}
+
+% custom underline
+\usepackage{contour}
+\usepackage[normalem]{ulem}
+\renewcommand{\ULdepth}{1.8pt}
+\contourlength{0.8pt}
+\newcommand{\myuline}[1]{%
+  \uline{\phantom{#1}}%
+  \llap{\contour{white}{#1}}%
+}
+
+% custom font: helvetica-style
+\usepackage{tgheros}
+\renewcommand*\familydefault{\sfdefault}
+\usepackage[T1]{fontenc}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{0in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% sans serif sections
+\titleformat {\section}{
+    \bfseries \vspace{2pt} \raggedright \large
+}{}{0em}{}[\color{light-grey} {\titlerule[2pt]} \vspace{-6pt}]
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-1pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-1pt}\item
+    \begin{tabular*}{\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & {\color{dark-grey}\small #2}\vspace{1pt}\\
+      \textit{#3} & {\color{dark-grey} \small #4}\\
+    \end{tabular*}\vspace{-4pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+      #1 & {\color{dark-grey}} \\
+    \end{tabular*}\vspace{-4pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{0pt}}
+
+\color{text-grey}
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+%----------HEADING----------
+\begin{center}
+    \textbf{\Huge Gutta Bhargav Prudhvi} \\ \vspace{6pt}
+
+    \small
+    \faEnvelope \hspace{2pt} \href{mailto:bhargavgutta910@gmail.com}{bhargavgutta910@gmail.com}
+    \hspace{8pt} $|$ \hspace{8pt}
+    \faPhone* \hspace{2pt} +91 9502980009
+    \hspace{8pt} $|$ \hspace{8pt}
+    \faGithub \hspace{2pt} \href{https://github.com/Gutta09}{Gutta09}
+    \hspace{8pt} $|$ \hspace{8pt}
+    \faLinkedin \hspace{2pt} \href{www.linkedin.com/in/bhargavgutta}{Bhargavgutta}
+    \hspace{8pt} $|$ \hspace{8pt}
+    \faMapMarker* \hspace{2pt} Vijayawada, India
+\end{center}
+
+%-----------SUMMARY-----------
+\section{SUMMARY}
+\small{Computer Science undergraduate at SRM University AP with hands-on experience in full-stack web development, machine learning. Proficient in building end-to-end applications using the MERN stack, Python-based ML pipelines, and cloud CRM solutions. Seeking opportunities to apply technical skills in software engineering and data-driven problem solving.}
+\vspace{-6pt}
+
+%-----------EDUCATION-----------
+\section{EDUCATION}
+\resumeSubHeadingListStart
+
+\item
+\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+\textbf{SRM University AP} & \textbf{\textit{B.Tech. Computer Science and Engineering}} \\
+Amaravathi, India & \textit{Aug. 2023 -- May 2027} \\
+\end{tabular*}\vspace{-6pt}
+
+\resumeItemListStart
+    \resumeItem{\textbf{Cumulative GPA:} 7.54/10}
+\resumeItemListEnd
+
+\resumeSubHeadingListEnd
+
+%-----------EXPERIENCE-----------
+\section{EXPERIENCE}
+\resumeSubHeadingListStart
+
+\resumeSubheading
+  {Edubot Technologies}{June 2025 – July 2025}
+  {Full Stack Developer Intern (MERN Stack)}{Remote}
+  \resumeItemListStart
+    \resumeItem{Completed an intensive 8-week program focused on MERN stack development (MongoDB, Express.js, React.js, Node.js).}
+    \resumeItem{Developed a full-stack Expense Tracker application with frontend using React + Vite (Tailwind CSS) and backend using Node.js/Express.js with MongoDB Atlas.}
+    \resumeItem{Implemented responsive UI, client-side routing, and RESTful APIs for adding, tracking, and deleting expenses.}
+  \resumeItemListEnd
+
+\resumeSubHeadingListEnd
+
+%-----------PROJECTS-----------
+\section{PROJECTS}
+    \resumeSubHeadingListStart
+
+      \resumeProjectHeading
+          {\textbf{LearnWeave} $|$ \emph{Next.js, TypeScript , PostgreSQL, OpenAI API,} $|$ \href{https://github.com/Gutta09/LearnWave}{\myuline{GitHub}}}{}
+          \resumeItemListStart
+            \resumeItem{Built an AI-powered course generation platform using Next.js, TypeScript, and OpenAI GPT-4 API that automatically creates complete courses with lessons and YouTube videos from user topics in 2-3 minutes.}
+            \resumeItem{Integrated YouTube Data API and OpenAI to automatically recommend relevant educational videos for each lesson with real-time metadata integration and quality filtering.}
+          \resumeItemListEnd
+
+      \resumeProjectHeading
+          {\textbf{Expense Tracker} $|$ \emph{React, Vite, Tailwind CSS, Node.js, Express.js, MongoDB} $|$ \href{https://github.com/Gutta09/ExpenseTracker}{\myuline{GitHub}}}{}
+          \resumeItemListStart
+            \resumeItem{Architected and deployed a secure full-stack MERN application with JWT authentication, protected routes, and role-based access control (RBAC).}
+            \resumeItem{Implemented centralized state management using React Context API, enabling real-time dashboard updates, advanced filtering, and CSV data export.}
+            \resumeItem{Built and documented RESTful APIs with modular controllers and middleware for expense tracking and user management, ensuring scalability and maintainability.}
+          \resumeItemListEnd
+
+      \resumeProjectHeading
+          {\textbf{RhythmicTunes} $|$ \emph{React, Tailwind CSS, Shadcn/ui, Vite} $|$ \href{https://github.com/Gutta09/RhythmicTunes}{\myuline{GitHub}}}{}
+          \resumeItemListStart
+            \resumeItem{Created a music streaming app with full playback controls, shuffle, repeat modes, and playlist management using \textbf{React Context API} for state management.}
+            \resumeItem{Designed a responsive UI with \textbf{dark/light theme} support, genre-based browsing, artist collections, and a personal library tracking listening statistics.}
+          \resumeItemListEnd
+
+    \resumeSubHeadingListEnd
+
+%-----------SKILLS-----------
+\section{SKILLS}
+ \begin{itemize}[leftmargin=0in, label={}]
+    \small{\item{
+     \textbf{Languages}{: Python, JavaScript, HTML/CSS, SQL, Go, }\vspace{2pt} \\
+     \textbf{Frameworks}{: React.js, Node.js, Express.js, Tailwind CSS, PHP, Astro, }\vspace{2pt} \\
+     \textbf{Libraries}{: scikit-learn, Pandas, NumPy, Matplotlib, Seaborn, Socket.io, PixiJS}\vspace{2pt} \\
+     \textbf{Databases}{: MongoDB, PostgreSQL, MySQL}\vspace{2pt} \\
+     \textbf{Developer Tools}{: Git, GitHub, Jupyter Notebook, VS Code, PowerBi, Lightning App Builder}\vspace{2pt} \\
+     \textbf{Concepts}{: Machine Learning, REST APIs, Data Visualization, CRM Development, Responsive Design}
+    }}
+ \end{itemize}
+
+%-------------------------------------------
+\end{document}

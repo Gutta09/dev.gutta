@@ -1,11 +1,11 @@
 let projects = [
   {
-    title: "FitQuant",
+    title: "Learn Wave",
     status: "",
     description:
-      "A full-stack MERN + Astro fitness analytics platform featuring comprehensive workout logging with sets/reps tracking, calorie tracking with nutrition database integration, and advanced performance visualization using dynamic charting APIs for data-driven fitness insights.",
-    image: "",
-    link: "https://github.com/bhargavgutta/fitquant",
+      "An AI-powered course builder that automatically generates complete courses with YouTube videos and lessons using OpenAI and YouTube APIs. Features include AI-generated courses for any topic, YouTube integration with embedded videos, structured progressive learning, and customizable difficulty levels.",
+    image: "/Learnwave.jpeg",
+    link: "https://github.com/Gutta09/LearnWave/tree/main",
   },
   {
     title: "Low Echo Chess",
@@ -16,12 +16,12 @@ let projects = [
     link: "https://github.com/bhargavgutta/",
   },
   {
-    title: "Project Two",
-    status: "IN PROGRESS",
+    title: "Learn Wave",
+    status: "",
     description:
-      "Another project showcasing your work and skills",
+      "An interactive learning platform designed to help users master new skills through wave-based learning techniques and progressive content delivery.",
     image: "",
-    link: "https://github.com/",
+    link: "https://github.com/bhargavgutta/learn-wave",
   },
 ];
 
