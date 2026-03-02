@@ -3,144 +3,40 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout>
-    <section id="resume" class="flex overflow-x-hidden pt-5">
-        <div class="container mx-auto flex justify-center pb-20 text-lg leading-relaxed md:w-[80%] lg:w-[60%] flex-col items-start pt-3 space-y-3">
-            <div class="flex flex-col items-start pt-3 pb-3 space-y-3 w-full">
-                <h1 class="title-font dark:text-gray-100 dark:text-opacity-80 sm:text-4xl text-3xl mb-4 font-medium text-black py-2">
-                    Gutta Bhargav Prudhvi
-                </h1>
-                
-                <div class="text-sm dark:text-gray-400 text-gray-600 space-y-1 w-full">
-                    <p>📧 bhargavgutta910@gmail.com</p>
-                    <p>📱 +91 9502980009</p>
-                    <p>🔗 <a href="https://github.com/Gutta09" target="_blank" rel="noopener noreferrer" class="text-blue-500 hover:underline">GitHub: Gutta09</a></p>
-                    <p>💼 <a href="https://www.linkedin.com/in/bhargavgutta" target="_blank" rel="noopener noreferrer" class="text-blue-500 hover:underline">LinkedIn: Bhargavgutta</a></p>
-                    <p>🌐 <a href="https://dev-gutta.vercel.app" target="_blank" rel="noopener noreferrer" class="text-blue-500 hover:underline">Portfolio Website</a></p>
-                    <p>📍 Vijayawada, India</p>
-                </div>
-
-                <!-- Summary -->
-                <div class="mt-6 w-full">
-                    <h2 class="title-font dark:text-titlePurple dark:text-opacity-80 sm:text-2xl text-xl mb-3 font-semibold text-black">
-                        SUMMARY
-                    </h2>
-                    <p class="dark:text-gray-400 text-gray-700">
-                        Computer Science undergraduate at SRM University AP with hands-on experience in full-stack web development and machine learning. Proficient in building end-to-end applications using the MERN stack, Python-based ML pipelines, and cloud CRM solutions. Seeking opportunities to apply technical skills in software engineering and data-driven problem solving.
-                    </p>
-                </div>
-
-                <!-- Education -->
-                <div class="mt-6 w-full">
-                    <h2 class="title-font dark:text-titlePurple dark:text-opacity-80 sm:text-2xl text-xl mb-3 font-semibold text-black">
-                        EDUCATION
-                    </h2>
-                    <div class="dark:text-gray-400 text-gray-700 space-y-2">
-                        <div class="flex justify-between items-start">
-                            <div>
-                                <h3 class="font-bold dark:text-gray-100">SRM University AP</h3>
-                                <p class="italic">B.Tech. Computer Science and Engineering</p>
-                            </div>
-                            <span class="text-sm">Aug. 2023 – May 2027</span>
-                        </div>
-                        <p>📊 Cumulative GPA: 7.5/10</p>
-                    </div>
-                </div>
-
-                <!-- Experience -->
-                <div class="mt-6 w-full">
-                    <h2 class="title-font dark:text-titlePurple dark:text-opacity-80 sm:text-2xl text-xl mb-3 font-semibold text-black">
-                        EXPERIENCE
-                    </h2>
-                    <div class="dark:text-gray-400 text-gray-700 space-y-4">
-                        <div>
-                            <div class="flex justify-between items-start">
-                                <div>
-                                    <h3 class="font-bold dark:text-gray-100">Edubot Technologies</h3>
-                                    <p class="italic text-sm">Full Stack Developer Intern (MERN Stack)</p>
-                                </div>
-                                <span class="text-sm">June 2025 – July 2025</span>
-                            </div>
-                            <ul class="list-disc list-inside mt-2 space-y-1 text-sm">
-                                <li>Completed an intensive 8-week program focused on MERN stack development</li>
-                                <li>Developed a full-stack Expense Tracker application with React + Vite and Node.js/Express.js</li>
-                                <li>Implemented responsive UI, client-side routing, and RESTful APIs</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Projects -->
-                <div class="mt-6 w-full">
-                    <h2 class="title-font dark:text-titlePurple dark:text-opacity-80 sm:text-2xl text-xl mb-3 font-semibold text-black">
-                        PROJECTS
-                    </h2>
-                    <div class="dark:text-gray-400 text-gray-700 space-y-6">
-                        <!-- LearnWave -->
-                        <div>
-                            <div class="flex justify-between items-start">
-                                <h3 class="font-bold dark:text-gray-100">Learn Wave</h3>
-                                <a href="https://github.com/Gutta09/LearnWave" target="_blank" rel="noopener noreferrer" class="text-blue-500 hover:underline text-sm">GitHub</a>
-                            </div>
-                            <p class="text-sm italic mb-2">Next.js, TypeScript, PostgreSQL, OpenAI API</p>
-                            <ul class="list-disc list-inside space-y-1 text-sm">
-                                <li>Built an AI-powered course generation platform using Next.js and OpenAI GPT-4 that automatically creates complete courses</li>
-                                <li>Integrated YouTube Data API and OpenAI to automatically recommend relevant educational videos</li>
-                            </ul>
-                        </div>
-
-                        <!-- Expense Tracker -->
-                        <div>
-                            <div class="flex justify-between items-start">
-                                <h3 class="font-bold dark:text-gray-100">Expense Tracker</h3>
-                                <a href="https://github.com/Gutta09/ExpenseTracker" target="_blank" rel="noopener noreferrer" class="text-blue-500 hover:underline text-sm">GitHub</a>
-                            </div>
-                            <p class="text-sm italic mb-2">React, Vite, Tailwind CSS, Node.js, Express.js, MongoDB</p>
-                            <ul class="list-disc list-inside space-y-1 text-sm">
-                                <li>Architected a secure full-stack MERN application with JWT authentication and role-based access control</li>
-                                <li>Implemented centralized state management using React Context API with real-time dashboard updates</li>
-                                <li>Built and documented RESTful APIs with modular controllers and middleware</li>
-                            </ul>
-                        </div>
-
-                        <!-- RhythmicTunes -->
-                        <div>
-                            <div class="flex justify-between items-start">
-                                <h3 class="font-bold dark:text-gray-100">RhythmicTunes</h3>
-                                <a href="https://github.com/Gutta09/RhythmicTunes" target="_blank" rel="noopener noreferrer" class="text-blue-500 hover:underline text-sm">GitHub</a>
-                            </div>
-                            <p class="text-sm italic mb-2">React, Tailwind CSS, Shadcn/ui, Vite</p>
-                            <ul class="list-disc list-inside space-y-1 text-sm">
-                                <li>Created a music streaming app with full playback controls, shuffle, repeat modes, and playlist management using React Context API</li>
-                                <li>Designed a responsive UI with dark/light theme support, genre-based browsing, artist collections, and personal library tracking</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Skills -->
-                <div class="mt-6 w-full">
-                    <h2 class="title-font dark:text-titlePurple dark:text-opacity-80 sm:text-2xl text-xl mb-3 font-semibold text-black">
-                        SKILLS
-                    </h2>
-                    <div class="dark:text-gray-400 text-gray-700 space-y-2 text-sm">
-                        <p><span class="font-semibold dark:text-gray-100">Languages:</span> Python, JavaScript, HTML/CSS, SQL, Go</p>
-                        <p><span class="font-semibold dark:text-gray-100">Frameworks:</span> React.js, Node.js, Express.js, Tailwind CSS, Astro</p>
-                        <p><span class="font-semibold dark:text-gray-100">Libraries:</span> scikit-learn, Pandas, NumPy, Matplotlib, Seaborn, Socket.io, PixiJS</p>
-                        <p><span class="font-semibold dark:text-gray-100">Databases:</span> MongoDB, PostgreSQL, MySQL</p>
-                        <p><span class="font-semibold dark:text-gray-100">Developer Tools:</span> Git, GitHub, Jupyter Notebook, VS Code, PowerBi, Lightning App Builder</p>
-                        <p><span class="font-semibold dark:text-gray-100">Concepts:</span> Machine Learning, REST APIs, Data Visualization, CRM Development, Responsive Design</p>
-                    </div>
-                </div>
-
-                <!-- Download Resume -->
-                <div class="mt-8 w-full">
-                    <a href="/resume.pdf" download class="inline-block px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-colors">
-                        📄 Download Resume (PDF)
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
+  <section id="resume" class="pt-6 pb-8">
+    <div class="container mx-auto px-4">
+      <div class="flex justify-end mb-4">
+        <a
+          href="/resume.pdf"
+          download
+          class="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-sm font-medium"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+          </svg>
+          Download Resume
+        </a>
+      </div>
+      <div class="w-full h-[85vh] rounded-lg overflow-hidden shadow-lg border border-gray-200 dark:border-gray-700">
+        <object
+          data="/resume.pdf"
+          type="application/pdf"
+          class="w-full h-full"
+        >
+          <iframe
+            src={`https://docs.google.com/gview?url=https://dev-gutta.vercel.app/resume.pdf&embedded=true`}
+            title="Resume PDF"
+            class="w-full h-full"
+          >
+            <p class="text-center py-10">
+              Unable to display PDF.
+              <a href="/resume.pdf" class="text-blue-500 underline">Download it here</a>.
+            </p>
+          </iframe>
+        </object>
+      </div>
+    </div>
+  </section>
 </Layout>
 
 <style>
