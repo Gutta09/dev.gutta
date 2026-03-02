@@ -188,11 +188,7 @@ import projects from '../data/projects.js';
       const chatMessages = document.getElementById('chat-messages');
       const loadingDiv = document.getElementById('loading-div');
 
-      // ============================================================
-      // IMPORTANT: Replace this URL with your actual API Gateway URL
-      // after deploying the Lambda function.
-      // ============================================================
-      const API_ENDPOINT = "YOUR_API_GATEWAY_URL_HERE";
+      const API_ENDPOINT = "/api/chat";
 
       function addUserMessage(text: string) {
         if (!chatMessages) return;
