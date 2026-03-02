@@ -81,11 +81,11 @@ aside.navbar.open {
 /* ─── Chatbot Styles ───────────────────────────────────────────────── */
 
 .chatbot-container {
-  border: 1px solid rgba(187, 134, 252, 0.2);
+  border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .dark .chatbot-container {
-  border-color: rgba(187, 134, 252, 0.15);
+  border-color: rgba(255, 255, 255, 0.08);
 }
 
 .chat-messages::-webkit-scrollbar {
@@ -97,12 +97,12 @@ aside.navbar.open {
 }
 
 .chat-messages::-webkit-scrollbar-thumb {
-  background: rgba(187, 134, 252, 0.3);
+  background: rgba(150, 150, 150, 0.3);
   border-radius: 3px;
 }
 
 .chat-messages::-webkit-scrollbar-thumb:hover {
-  background: rgba(187, 134, 252, 0.5);
+  background: rgba(150, 150, 150, 0.5);
 }
 
 /* Typing indicator dots */
@@ -117,8 +117,12 @@ aside.navbar.open {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background-color: #BB86FC;
+  background-color: #6b7280;
   animation: typingBounce 1.4s infinite ease-in-out both;
+}
+
+.dark .typing-indicator span {
+  background-color: #9ca3af;
 }
 
 .typing-indicator span:nth-child(1) {
