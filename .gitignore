@@ -16,6 +16,11 @@ pnpm-debug.log*
 # environment variables
 .env
 .env.production
+.env.local
+
+# chatbot-lambda build artifacts
+chatbot-lambda/node_modules/
+chatbot-lambda/.env
 
 # macOS-specific files
 .DS_Store

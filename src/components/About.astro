@@ -118,99 +118,180 @@ import projects from '../data/projects.js';
   ))}
 
   <h2 class="title-font dark:text-gray-100 dark:text-opacity-80 mt-2 sm:text-4xl text-3xl mb-4 font-medium text-black pt-2">
-    BhargavBot
+    Gbot
   </h2>
   <h4 class="title-font dark:text-gray-100 dark:text-opacity-80 sm:text-xl text-lg mb-4 font-medium text-black">
     Powered by OpenAI and LangChain
   </h4>
-  <div 
-    class="block w-full max-w-2xl mb-8 mt-4 dark:bg-containerGray shadow-lg transform transition-transform duration-300"
-  >
-    <div class="flex dark:bg-containerGray bg-gray-50 px-2 py-4 mt-4 mb-2 rounded-xl overflow-hidden">
-        <div class="w-full p-6">
-            <h3 class="text-xl font-semibold dark:text-opacity-80 dark:text-titlePurple mb-2">BhargavBot:</h3>
-            <p class="text-lg dark:text-opacity-70 dark:text-gray-300">
-                <span id="langchain-text">Ask me anything about Bhargav, and I'll assist you to the best of my capability!</span>
-            </p>
-            <div id="loading-div" class="hidden w-12 h-12">
-              <p class="text-sm dark:text-gray-400">Loading...</p>
-            </div>
+  
+  <!-- Chat Container -->
+  <div class="chatbot-container block w-full max-w-2xl mb-8 mt-4 rounded-xl overflow-hidden shadow-lg">
+    
+    <!-- Chat Messages Area -->
+    <div id="chat-messages" class="chat-messages dark:bg-containerGray bg-gray-50 px-4 py-4 space-y-4 max-h-96 overflow-y-auto">
+      <!-- Bot Welcome Message -->
+      <div class="flex items-start space-x-3">
+        <div class="w-8 h-8 rounded-full bg-titlePurple flex items-center justify-center flex-shrink-0">
+          <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 3.104v5.714a2.25 2.25 0 0 1-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 0 1 4.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 14.5M14.25 3.104c.251.023.501.05.75.082M19.8 14.5l-2.147 2.146a2.25 2.25 0 0 1-1.591.659H7.938a2.25 2.25 0 0 1-1.591-.659L4.2 14.5m15.6 0-.177-.529A2.25 2.25 0 0 0 17.5 12.5h-11a2.25 2.25 0 0 0-2.123 1.471L4.2 14.5"/>
+          </svg>
         </div>
+        <div class="chat-msg-bot dark:bg-lighterGray bg-gray-200 rounded-2xl rounded-tl-sm px-4 py-3 max-w-[85%]">
+          <p class="text-sm dark:text-gray-200 text-gray-800">
+            👋 Hi! I'm <strong class="dark:text-titlePurple text-purple-700">Gbot</strong>. Ask me anything about Bhargav — his projects, skills, hobbies, or anything else!
+          </p>
+        </div>
+      </div>
     </div>
 
-  
-<div class="chat-bubble w-full">
-  <div class="chat-bubble-content">
-    <div class="flex items-center mt-2 mr-2 mb-2 space-x-2">
-      <div class="w-10 h-10 ml-2 rounded-full bg-gray-50 dark:bg-containerGray"></div>
-      <input 
-        id="user-question" 
-        class="w-full border dark:bg-containerGray dark:text-gray-200 dark:text-opacity-90 rounded-md p-2" 
-        type="text" 
-        placeholder="What does Bhargav like?"
-      >
+    <!-- Loading Indicator -->
+    <div id="loading-div" class="hidden dark:bg-containerGray bg-gray-50 px-4 py-2">
+      <div class="flex items-start space-x-3">
+        <div class="w-8 h-8 rounded-full bg-titlePurple flex items-center justify-center flex-shrink-0">
+          <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 3.104v5.714a2.25 2.25 0 0 1-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 0 1 4.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 14.5M14.25 3.104c.251.023.501.05.75.082M19.8 14.5l-2.147 2.146a2.25 2.25 0 0 1-1.591.659H7.938a2.25 2.25 0 0 1-1.591-.659L4.2 14.5m15.6 0-.177-.529A2.25 2.25 0 0 0 17.5 12.5h-11a2.25 2.25 0 0 0-2.123 1.471L4.2 14.5"/>
+          </svg>
+        </div>
+        <div class="dark:bg-lighterGray bg-gray-200 rounded-2xl rounded-tl-sm px-4 py-3">
+          <div class="typing-indicator">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Input Area -->
+    <div class="chat-input-area dark:bg-lighterGray bg-gray-100 px-4 py-3 border-t dark:border-gray-700 border-gray-300">
+      <div class="flex items-center space-x-3">
+        <input 
+          id="user-question" 
+          class="flex-1 border dark:border-gray-600 border-gray-300 dark:bg-containerGray bg-white dark:text-gray-200 text-gray-800 rounded-full px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-titlePurple focus:border-transparent transition-all duration-200" 
+          type="text" 
+          placeholder="Ask me anything about Bhargav..."
+          autocomplete="off"
+        >
+        <button 
+          id="fetch-langchain-response" 
+          class="w-10 h-10 flex items-center justify-center rounded-full bg-titlePurple hover:bg-titlePurpleDark text-white transition-all duration-200 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-titlePurple focus:ring-offset-2 dark:focus:ring-offset-containerGray disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
+          aria-label="Send message"
+        >
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>
+          </svg>
+        </button>
+      </div>
+      <p class="text-xs dark:text-gray-500 text-gray-400 mt-2 text-center">Powered by OpenAI & LangChain • AWS Lambda</p>
     </div>
   </div>
-</div>
-
-  
-  <button 
-    id="fetch-langchain-response" 
-    class="text-lg px-6 py-2 bg-gray-700 text-white rounded-md mt-4 hover:bg-gray-800 dark:bg-byz dark:hover:bg-containerGray dark:hover:text-white dark:text-white dark:text-opacity-90 transition-transform duration-300 ease-in-out transform shadow-lg hover:shadow-xl"
-  >
-    Ask Anything About Me
-  </button>
 
 </div>
 </div>
+
     <script>
     document.addEventListener('DOMContentLoaded', () => {
       const fetchButton = document.getElementById('fetch-langchain-response');
-      const userQuestion = document.getElementById('user-question');
-      const lanechainText = document.getElementById('langchain-text');
+      const userQuestion = document.getElementById('user-question') as HTMLInputElement | null;
+      const chatMessages = document.getElementById('chat-messages');
       const loadingDiv = document.getElementById('loading-div');
-      const lanechainResponse = document.getElementById('langchain-response');
 
-      if (fetchButton) {
-        fetchButton.addEventListener('click', async () => {
-          const question = userQuestion ? (userQuestion as HTMLInputElement).value : '';
-          
-          if (!question) {
-            alert('Please enter a question.');
-            return;
+      // ============================================================
+      // IMPORTANT: Replace this URL with your actual API Gateway URL
+      // after deploying the Lambda function.
+      // ============================================================
+      const API_ENDPOINT = "YOUR_API_GATEWAY_URL_HERE";
+
+      function addUserMessage(text: string) {
+        if (!chatMessages) return;
+        const msgDiv = document.createElement('div');
+        msgDiv.className = 'flex items-start space-x-3 justify-end';
+        msgDiv.innerHTML = `
+          <div class="chat-msg-user bg-titlePurple rounded-2xl rounded-tr-sm px-4 py-3 max-w-[85%]">
+            <p class="text-sm text-white">${escapeHtml(text)}</p>
+          </div>
+          <div class="w-8 h-8 rounded-full bg-gray-300 dark:bg-gray-600 flex items-center justify-center flex-shrink-0">
+            <svg class="w-5 h-5 dark:text-gray-300 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+            </svg>
+          </div>
+        `;
+        chatMessages.appendChild(msgDiv);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+      }
+
+      function addBotMessage(text: string) {
+        if (!chatMessages) return;
+        const msgDiv = document.createElement('div');
+        msgDiv.className = 'flex items-start space-x-3 chat-msg-appear';
+        msgDiv.innerHTML = `
+          <div class="w-8 h-8 rounded-full bg-titlePurple flex items-center justify-center flex-shrink-0">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 3.104v5.714a2.25 2.25 0 0 1-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 0 1 4.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 14.5M14.25 3.104c.251.023.501.05.75.082M19.8 14.5l-2.147 2.146a2.25 2.25 0 0 1-1.591.659H7.938a2.25 2.25 0 0 1-1.591-.659L4.2 14.5m15.6 0-.177-.529A2.25 2.25 0 0 0 17.5 12.5h-11a2.25 2.25 0 0 0-2.123 1.471L4.2 14.5"/>
+            </svg>
+          </div>
+          <div class="chat-msg-bot dark:bg-lighterGray bg-gray-200 rounded-2xl rounded-tl-sm px-4 py-3 max-w-[85%]">
+            <p class="text-sm dark:text-gray-200 text-gray-800">${escapeHtml(text)}</p>
+          </div>
+        `;
+        chatMessages.appendChild(msgDiv);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+      }
+
+      function escapeHtml(text: string): string {
+        const div = document.createElement('div');
+        div.textContent = text;
+        return div.innerHTML;
+      }
+
+      async function handleSend() {
+        const question = userQuestion ? userQuestion.value.trim() : '';
+        
+        if (!question) return;
+        
+        // Add user message to chat
+        addUserMessage(question);
+        if (userQuestion) userQuestion.value = '';
+
+        // Show loading
+        if (loadingDiv) loadingDiv.classList.remove('hidden');
+        if (fetchButton) (fetchButton as HTMLButtonElement).disabled = true;
+
+        try {
+          const response = await fetch(API_ENDPOINT, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ question }),
+          });
+
+          if (loadingDiv) loadingDiv.classList.add('hidden');
+
+          if (response.ok) {
+            const data = await response.json();
+            addBotMessage(data.text);
+          } else {
+            addBotMessage("Sorry, I couldn't process your question right now. Please try again later.");
           }
+        } catch (error) {
+          console.error("Error:", error);
+          if (loadingDiv) loadingDiv.classList.add('hidden');
+          addBotMessage("Sorry, there was a connection error. Please try again.");
+        }
 
-          if (lanechainText) lanechainText.textContent = "";
-          if (loadingDiv) loadingDiv.classList.remove('hidden');
-        
-          const requestData = {
-            question: question
-          };
-        
-          try {
-            const response = await fetch("YOUR_API_ENDPOINT_HERE", {
-          method: 'POST',
-          headers: {
-              'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(requestData)
-      });
+        if (fetchButton) (fetchButton as HTMLButtonElement).disabled = false;
+      }
 
-          
-            if (response.ok) {
-              const data = await response.json();
-              if (loadingDiv) loadingDiv.classList.add('hidden');
-              if (lanechainText) lanechainText.textContent = data.text;
-              if (lanechainResponse) lanechainResponse.classList.remove('hidden');
-            } else {
-              console.error("Error fetching langchain response:", await response.text());
-              if (loadingDiv) loadingDiv.classList.add('hidden');
-              if (lanechainText) lanechainText.textContent = "Sorry, I couldn't process your question. Please try again later.";
-            }
-          } catch (error) {
-            console.error("Error:", error);
-            if (loadingDiv) loadingDiv.classList.add('hidden');
-            if (lanechainText) lanechainText.textContent = "Sorry, there was an error. Please try again.";
+      // Click handler
+      if (fetchButton) {
+        fetchButton.addEventListener('click', handleSend);
+      }
+
+      // Enter key handler
+      if (userQuestion) {
+        userQuestion.addEventListener('keydown', (e: KeyboardEvent) => {
+          if (e.key === 'Enter' && !e.shiftKey) {
+            e.preventDefault();
+            handleSend();
           }
         });
       }
