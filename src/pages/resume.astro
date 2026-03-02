@@ -18,22 +18,11 @@ import Layout from '../layouts/Layout.astro';
         </a>
       </div>
       <div class="w-full h-[85vh] rounded-lg overflow-hidden shadow-lg border border-gray-200 dark:border-gray-700">
-        <object
-          data="/resume.pdf"
-          type="application/pdf"
-          class="w-full h-full"
-        >
-          <iframe
-            src={`https://docs.google.com/gview?url=https://dev-gutta.vercel.app/resume.pdf&embedded=true`}
-            title="Resume PDF"
-            class="w-full h-full"
-          >
-            <p class="text-center py-10">
-              Unable to display PDF.
-              <a href="/resume.pdf" class="text-blue-500 underline">Download it here</a>.
-            </p>
-          </iframe>
-        </object>
+        <iframe
+          src="/resume.pdf"
+          title="Resume PDF"
+          class="w-full h-full border-0"
+        ></iframe>
       </div>
     </div>
   </section>
