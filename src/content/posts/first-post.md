@@ -4,7 +4,7 @@ author: Bhargav Gutta
 image: ""
 date: January 2024
 slug: first-post
-description: An introduction to my thoughts on web development and programming.
+description: An introduction to my work in web development, including a todo app like Asana and an image captioner.
 ---
 
 # My First Blog Post
@@ -21,4 +21,6 @@ You can expect posts about:
 - Web development
 - Programming tips
 - Project updates
+- Building a todo app like Asana
+- Building an image captioner
 - Learning experiences
