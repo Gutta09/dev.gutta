@@ -1,7 +1,7 @@
-import { c as createComponent } from './astro-component_B7fJIgt0.mjs';
+import { c as createComponent } from './astro-component_DmwjaYxJ.mjs';
 import 'piccolore';
-import { c as renderComponent, r as renderTemplate, m as maybeRenderHead, a as addAttribute } from './entrypoint_w09a8xBA.mjs';
-import { $ as $$Layout } from './Layout_BYP47cQF.mjs';
+import { c as renderComponent, r as renderTemplate, m as maybeRenderHead, a as addAttribute } from './entrypoint_CYPyryNL.mjs';
+import { $ as $$Layout } from './Layout_FwtFdios.mjs';
 import { f as fetchPortfolioRepos, a as formatRepoName, g as getLangColor } from './github_D8OfELJY.mjs';
 
 const $$Projects = createComponent(async ($$result, $$props, $$slots) => {

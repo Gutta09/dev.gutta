@@ -1,4 +1,4 @@
-import { t as typeHandlers, o as types, A as AstroError, N as NoImageMetadata, i as isRemoteAllowed, q as FailedToFetchRemoteImageDimensions, v as RemoteImageNotAllowed, w as removeQueryString, x as joinPaths, E as ExpectedImage, b as isRemotePath, L as LocalImageUsedWrongly, y as MissingImageDimension, l as UnsupportedImageFormat, z as IncompatibleDescriptorOptions, B as UnsupportedImageConversion, C as InvalidImageService, D as ExpectedImageOptions, G as ExpectedNotESMImage } from './entrypoint_w09a8xBA.mjs';
+import { t as typeHandlers, o as types, A as AstroError, N as NoImageMetadata, i as isRemoteAllowed, q as FailedToFetchRemoteImageDimensions, v as RemoteImageNotAllowed, w as removeQueryString, x as joinPaths, E as ExpectedImage, b as isRemotePath, L as LocalImageUsedWrongly, y as MissingImageDimension, l as UnsupportedImageFormat, z as IncompatibleDescriptorOptions, B as UnsupportedImageConversion, C as InvalidImageService, D as ExpectedImageOptions, G as ExpectedNotESMImage } from './entrypoint_CYPyryNL.mjs';
 import { D as DEFAULT_OUTPUT_FORMAT, a as VALID_SUPPORTED_FORMATS, b as DEFAULT_HASH_PROPS } from './consts_Bd-1c2lz.mjs';
 
 function isESMImportedImage(src) {
@@ -592,7 +592,7 @@ async function getConfiguredImageService() {
   if (!globalThis?.astroAsset?.imageService) {
     const { default: service } = await import(
       // @ts-expect-error
-      './sharp_B_rDt6Lh.mjs'
+      './sharp_Dtk1Zcdq.mjs'
     ).catch((e) => {
       const error = new AstroError(InvalidImageService);
       error.cause = e;

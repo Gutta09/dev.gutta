@@ -1,7 +1,7 @@
-import { c as createComponent } from './astro-component_B7fJIgt0.mjs';
+import { c as createComponent } from './astro-component_DmwjaYxJ.mjs';
 import 'piccolore';
-import { a as addAttribute, d as renderHead, c as renderComponent, e as renderSlot, r as renderTemplate } from './entrypoint_w09a8xBA.mjs';
-import { $ as $$Navbar } from './Navbar_DvUutKWX.mjs';
+import { a as addAttribute, d as renderHead, c as renderComponent, e as renderSlot, r as renderTemplate } from './entrypoint_CYPyryNL.mjs';
+import { $ as $$Navbar } from './Navbar_B_ZrFTto.mjs';
 
 const $$Layout = createComponent(($$result, $$props, $$slots) => {
   const Astro2 = $$result.createAstro($$props, $$slots);

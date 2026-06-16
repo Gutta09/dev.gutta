@@ -1,9 +1,9 @@
-import { c as createComponent } from './astro-component_B7fJIgt0.mjs';
+import { c as createComponent } from './astro-component_DmwjaYxJ.mjs';
 import 'piccolore';
-import { m as maybeRenderHead, r as renderTemplate, a as addAttribute, c as renderComponent, d as renderHead } from './entrypoint_w09a8xBA.mjs';
-import { $ as $$Navbar } from './Navbar_DvUutKWX.mjs';
+import { m as maybeRenderHead, r as renderTemplate, a as addAttribute, c as renderComponent, d as renderHead } from './entrypoint_CYPyryNL.mjs';
+import { $ as $$Navbar } from './Navbar_B_ZrFTto.mjs';
 import 'clsx';
-import { g as getCollection } from './_astro_content_Cc9DiPx-.mjs';
+import { g as getCollection } from './_astro_content_CvvYDN_0.mjs';
 import { f as fetchPortfolioRepos, g as getLangColor, a as formatRepoName } from './github_D8OfELJY.mjs';
 
 let projects = [

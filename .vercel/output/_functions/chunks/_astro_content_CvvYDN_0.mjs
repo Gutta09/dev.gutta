@@ -1,8 +1,8 @@
 import { escape } from 'html-escaper';
 import { Traverse } from 'neotraverse/modern';
 import * as z from 'zod/v4';
-import { f as renderElement, g as generateCspDigest, s as spreadAttributes, u as unescapeHTML, r as renderTemplate, h as removeBase, b as isRemotePath, A as AstroError, U as UnknownContentCollectionError, R as RenderUndefinedEntryError, p as prependForwardSlash, j as createHeadAndContent, c as renderComponent } from './entrypoint_w09a8xBA.mjs';
-import { c as createComponent } from './astro-component_B7fJIgt0.mjs';
+import { f as renderElement, g as generateCspDigest, s as spreadAttributes, u as unescapeHTML, r as renderTemplate, h as removeBase, b as isRemotePath, A as AstroError, U as UnknownContentCollectionError, R as RenderUndefinedEntryError, p as prependForwardSlash, j as createHeadAndContent, c as renderComponent } from './entrypoint_CYPyryNL.mjs';
+import { c as createComponent } from './astro-component_DmwjaYxJ.mjs';
 import 'clsx';
 import { V as VALID_INPUT_FORMATS } from './consts_Bd-1c2lz.mjs';
 import 'piccolore';
@@ -194,7 +194,7 @@ const CONTENT_LAYER_IMAGE_REGEX = /__ASTRO_IMAGE_="([^"]+)"/g;
 async function updateImageReferencesInBody(html, fileName) {
   const { default: imageAssetMap } = await import('./content-assets_DleWbedO.mjs');
   const imageObjects = /* @__PURE__ */ new Map();
-  const { getImage } = await import('./_virtual_astro_get-image_Dk4RkyYK.mjs');
+  const { getImage } = await import('./_virtual_astro_get-image_D84GjaID.mjs');
   for (const [_full, imagePath] of html.matchAll(CONTENT_LAYER_IMAGE_REGEX)) {
     try {
       const decodedImagePath = JSON.parse(

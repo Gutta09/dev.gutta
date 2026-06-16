@@ -1,6 +1,6 @@
-import { c as createComponent } from './astro-component_B7fJIgt0.mjs';
+import { c as createComponent } from './astro-component_DmwjaYxJ.mjs';
 import 'piccolore';
-import { m as maybeRenderHead, a as addAttribute, r as renderTemplate } from './entrypoint_w09a8xBA.mjs';
+import { m as maybeRenderHead, a as addAttribute, r as renderTemplate } from './entrypoint_CYPyryNL.mjs';
 import 'clsx';
 
 const $$Navbar = createComponent(($$result, $$props, $$slots) => {
