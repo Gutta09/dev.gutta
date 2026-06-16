@@ -1,10 +1,10 @@
 ---
 title: My First Blog Post
 author: Bhargav Gutta
-image: ""
+image: "/progresso.svg"
 date: January 2024
 slug: first-post
-description: An introduction to my work in web development, including a todo app like Asana and an image captioner.
+description: An introduction to my work in web development, including Progresso, a todo app with Kanban boards, and an AI image captioner.
 ---
 
 # My First Blog Post
@@ -21,6 +21,6 @@ You can expect posts about:
 - Web development
 - Programming tips
 - Project updates
-- Building a todo app like Asana
-- Building an image captioner
+- Building Progresso, a todo app with Kanban boards
+- Building an AI image captioner
 - Learning experiences

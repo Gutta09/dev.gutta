@@ -1,45 +1,26 @@
 ---
-import Navbar from '../components/Navbar.astro';
 import '../styles/global.css';
-import Header from '../components/header.astro';
+import Navbar from '../components/Navbar.astro';
 ---
 
+<!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<meta name="description" content="Bhargav Gutta's Portfolio Website">
-		<meta property="og:title" content="Bhargav's Portfolio">
-		<meta property="og:description" content="Bhargav Gutta's Portfolio Website">
-		<meta property="og:image" content="/newWebsite.jpg">
-		<meta property="og:url" content="https://dev.gutta.com">
-		<meta name="twitter:card" content="My website">
-		<meta name="twitter:title" content="Bhargav's Portfolio">
-		<meta name="twitter:description" content="Bhargav Gutta's Portfolio Website">
-		<meta name="twitter:image" content="/newWesbite.jpg">
-		<script type="application/ld+json">
-			{
-			  "@context": "https://schema.org/",
-			  "@type": "Person",
-			  "name": "Bhargav Gutta",
-			  "url": "https://dev.gutta.com/",
-			  "sameAs": [
-				"https://www.linkedin.com/in/bhargavgutta/",
-				"https://github.com/bhargavgutta",
-				"https://dev.gutta.com/"
-			  ]
-			}
-			</script>
-		<title>My Blogs</title>
-	</head>
-	<body class ="justify-center dark:bg-customGray bg-gray-50 h-screen">
-		<Navbar></Navbar>
-		<Header></Header>
-		<div class="content-container md:ml-[9%] sm:px-4 md:px-2 sm:ml-[5%] lg:ml-[13%]">
-    <slot></slot>
-</div>
-
-	</body>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content="Bhargav Gutta's Portfolio Website">
+    <meta property="og:title" content="Bhargav's Portfolio">
+    <meta property="og:description" content="Bhargav Gutta's Portfolio Website">
+    <meta property="og:image" content="/newWebsite.jpg">
+    <meta property="og:url" content="https://dev.gutta.com">
+    <title>Bhargav Gutta</title>
+  </head>
+  <body class="bg-white dark:bg-[#121212] min-h-screen pt-14">
+    <Navbar />
+    <main class="max-w-2xl mx-auto px-4 sm:px-6 py-12">
+      <slot />
+    </main>
+  </body>
 </html>

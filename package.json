@@ -9,9 +9,9 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/vercel": "^9.0.4",
+    "@astrojs/vercel": "^10.0.8",
     "@tailwindcss/typography": "^0.5.9",
-    "astro": "^5.17.1",
+    "astro": "^6.4.4",
     "autoprefixer": "^10.4.14",
     "openai": "^6.25.0",
     "postcss": "^8.4.24",

@@ -15,14 +15,6 @@ let projects = [
     image: "/dumbChess.jpg",
     link: "https://github.com/bhargavgutta/",
   },
-  {
-    title: "Learn Wave",
-    status: "",
-    description:
-      "An interactive learning platform designed to help users master new skills through wave-based learning techniques and progressive content delivery.",
-    image: "",
-    link: "https://github.com/bhargavgutta/learn-wave",
-  },
 ];
 
 export default projects;

@@ -1,43 +1,21 @@
 ---
-import Header from '../components/header.astro';
 import Navbar from '../components/Navbar.astro';
 import '../styles/global.css';
 ---
 
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<meta name="description" content="Bhargav Gutta's Portfolio Website">
-		<meta property="og:title" content="Bhargav's Portfolio">
-		<meta property="og:description" content="Bhargav Gutta's Portfolio Website">
-		<meta property="og:image" content="/newWebsite.jpg">
-		<meta property="og:url" content="https://dev.gutta.com">
-		<meta name="twitter:card" content="My website">
-		<meta name="twitter:title" content="Bhargav's Portfolio">
-		<meta name="twitter:description" content="Bhargav Gutta's Portfolio Website">
-		<meta name="twitter:image" content="/newWesbite.jpg">
-		<script type="application/ld+json">
-			{
-			  "@context": "https://schema.org/",
-			  "@type": "Person",
-			  "name": "Bhargav Gutta",
-			  "url": "https://dev.gutta.com/",
-			  "sameAs": [
-				"https://www.linkedin.com/in/bhargavgutta/",
-				"https://github.com/bhargavgutta",
-				"https://dev.gutta.com/"
-			  ]
-			}
-		</script>
-	</head>
-	<body class="dark:dark justify-center h-screen dark:bg-customGray bg-gray-50">
-		<Header></Header>
-		<Navbar></Navbar>
-        <div class="mx-auto blog-post prose pb-20 text-lg dark:text-gray-200 dark:text-opacity-70 lg:ml-[30%] leading-relaxed md:w-[60%] flex flex-col items-start pt-3 space-y-3">
-    <slot></slot>
-        </div>
-	</body>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content="Bhargav Gutta's Portfolio Website">
+    <title>Bhargav Gutta</title>
+  </head>
+  <body class="bg-white dark:bg-[#121212] min-h-screen pt-14">
+    <Navbar />
+    <div class="max-w-2xl mx-auto px-4 sm:px-6 py-12 blog-post prose dark:prose-invert prose-gray prose-sm sm:prose-base leading-relaxed">
+      <slot />
+    </div>
+  </body>
 </html>
