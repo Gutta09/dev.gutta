@@ -30,7 +30,9 @@
 
   --chip-bg: rgba(255, 255, 255, 0.65);
   --topbar-bg: rgba(255, 255, 255, 0.9);
-  --footer-bg: #1a1a1a;
+  --footer-bg: #f2f3f6;
+  --footer-text: #1d1e20;
+  --footer-muted: #727586;
   --card-shadow: rgba(29, 30, 32, 0.10);
   --pattern-fill: rgba(29, 30, 32, 0.08);
 
@@ -56,6 +58,8 @@
   --chip-bg: rgba(255, 255, 255, 0.10);
   --topbar-bg: rgba(15, 16, 18, 0.85);
   --footer-bg: #17181c;
+  --footer-text: #ffffff;
+  --footer-muted: rgba(255, 255, 255, 0.5);
   --card-shadow: rgba(0, 0, 0, 0.45);
   --pattern-fill: rgba(255, 255, 255, 0.07);
 }
@@ -361,33 +365,34 @@ h1, h2, h3, h4 {
 /* ── Footer (dark) ────────────────────────────────────── */
 .site-footer {
   background: var(--footer-bg);
-  color: #fff;
+  color: var(--footer-text);
   margin-top: 120px;
   border-radius: 2.5rem 2.5rem 0 0;
 }
 :root[data-theme='dark'] .site-footer {
   border-top: 1px solid var(--border);
 }
-.site-footer .section-label { color: rgba(255, 255, 255, 0.55); }
+.site-footer .section-label { color: var(--footer-muted); }
+.site-footer .display-lg { color: var(--footer-text); }
 .footer-email {
   font-family: var(--font-heading);
   font-size: clamp(1.25rem, 4vw, 2.75rem);
   font-weight: 500;
-  color: #fff;
+  color: var(--footer-text);
   text-decoration: none;
-  border-bottom: 3px solid #fff;
+  border-bottom: 3px solid currentColor;
   overflow-wrap: anywhere;
-  transition: color 0.2s ease, border-color 0.2s ease;
+  transition: color 0.2s ease;
 }
-.footer-email:hover { color: var(--tint-lavender); border-color: var(--tint-lavender); }
+.footer-email:hover { color: var(--accent); }
 .footer-link {
   font-family: var(--font-heading);
   font-size: 15px;
-  color: rgba(255, 255, 255, 0.65);
+  color: var(--footer-muted);
   text-decoration: none;
   transition: color 0.2s ease;
 }
-.footer-link:hover { color: #fff; }
+.footer-link:hover { color: var(--footer-text); }
 
 /* light variant for links outside the footer (hero socials) */
 .soft-link {
