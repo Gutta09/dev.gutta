@@ -1,0 +1,31 @@
+---
+const year = new Date().getFullYear();
+const socials = [
+  { label: 'GitHub', href: 'https://github.com/Gutta09' },
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/bhargavgutta/' },
+  { label: 'LeetCode', href: 'https://leetcode.com/u/ySH4mNLSXa/' },
+];
+---
+
+<footer class="site-footer">
+  <div class="max-w-5xl mx-auto px-6 sm:px-8 py-20">
+    <p class="section-label mb-6">Get in touch</p>
+    <p class="display-lg !text-white mb-8 max-w-3xl">
+      Have an idea or a role in mind? Let's talk.
+      <img src="/mini.gif" alt="" loading="lazy" width="28" height="28" class="mini-bot inline-block align-baseline ml-2" />
+    </p>
+    <a href="mailto:bhargavgutta910@gmail.com" class="footer-email">
+      bhargavgutta910@gmail.com
+    </a>
+
+    <div class="mt-16 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+      <div class="flex items-center gap-8">
+        {socials.map(s => (
+          <a href={s.href} target="_blank" rel="noopener noreferrer" class="footer-link">{s.label}</a>
+        ))}
+        <a href="/resume.pdf" download class="footer-link">Resume ↓</a>
+      </div>
+      <p class="text-sm text-white/40">&copy; {year} Bhargav Gutta</p>
+    </div>
+  </div>
+</footer>

@@ -1,26 +1,64 @@
 ---
 import '../styles/global.css';
 import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'Bhargav Gutta',
+  description = "Bhargav Gutta's Portfolio Website",
+} = Astro.props;
+
+const siteUrl = 'https://dev-gutta.vercel.app';
+const pageUrl = new URL(Astro.url.pathname, siteUrl).toString();
 ---
 
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="alternate icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
-    <meta name="description" content="Bhargav Gutta's Portfolio Website">
-    <meta property="og:title" content="Bhargav's Portfolio">
-    <meta property="og:description" content="Bhargav Gutta's Portfolio Website">
-    <meta property="og:image" content="/newWebsite.jpg">
-    <meta property="og:url" content="https://dev.gutta.com">
-    <title>Bhargav Gutta</title>
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/GOT.jpeg" />
+    <meta property="og:url" content={pageUrl} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <title>{title}</title>
+    <script is:inline>
+      // set theme before first paint to avoid a flash of the wrong theme
+      const saved = localStorage.getItem('theme');
+      const preferred = saved ?? (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      document.documentElement.dataset.theme = preferred;
+    </script>
   </head>
-  <body class="bg-white dark:bg-[#121212] min-h-screen pt-14">
+  <body>
     <Navbar />
-    <main class="max-w-2xl mx-auto px-4 sm:px-6 py-12">
+    <main class="max-w-5xl mx-auto px-6 sm:px-8 pt-28 pb-16">
       <slot />
     </main>
+    <Footer />
+    <script is:inline>
+      const observer = new IntersectionObserver(
+        entries => {
+          for (const entry of entries) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              observer.unobserve(entry.target);
+            }
+          }
+        },
+        { threshold: 0.12 }
+      );
+      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
   </body>
 </html>

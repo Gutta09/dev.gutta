@@ -4,9 +4,12 @@ export interface GitHubRepo {
   html_url: string;
   homepage: string | null;
   language: string | null;
+  languages_url: string;
   stargazers_count: number;
   topics: string[];
   updated_at: string;
+  /** all languages in the repo, largest first */
+  languages: string[];
 }
 
 const LANG_COLORS: Record<string, string> = {
@@ -37,20 +40,45 @@ export function formatRepoName(name: string): string {
     .replace(/\b\w/g, (c) => c.toUpperCase());
 }
 
+function ghHeaders(): Record<string, string> {
+  const headers: Record<string, string> = {
+    Accept: 'application/vnd.github+json',
+    'X-GitHub-Api-Version': '2022-11-28',
+  };
+  // optional: set GITHUB_TOKEN on Vercel to raise the API rate limit
+  const token = import.meta.env.GITHUB_TOKEN ?? process.env.GITHUB_TOKEN;
+  if (token) headers.Authorization = `Bearer ${token}`;
+  return headers;
+}
+
+async function fetchLanguages(url: string): Promise<string[]> {
+  try {
+    const res = await fetch(url, { headers: ghHeaders() });
+    if (!res.ok) return [];
+    const data = (await res.json()) as Record<string, number>;
+    return Object.entries(data)
+      .sort(([, a], [, b]) => b - a)
+      .map(([lang]) => lang);
+  } catch {
+    return [];
+  }
+}
+
 export async function fetchPortfolioRepos(username = 'Gutta09'): Promise<GitHubRepo[]> {
   try {
+    // list repos directly (instead of the search API) so new topics apply immediately
     const res = await fetch(
-      `https://api.github.com/search/repositories?q=user:${username}+topic:portfolio&sort=updated&per_page=20`,
-      {
-        headers: {
-          Accept: 'application/vnd.github+json',
-          'X-GitHub-Api-Version': '2022-11-28',
-        },
-      }
+      `https://api.github.com/users/${username}/repos?per_page=100&sort=updated`,
+      { headers: ghHeaders() }
     );
     if (!res.ok) return [];
-    const data = await res.json();
-    return (data.items as GitHubRepo[]) ?? [];
+    const data = (await res.json()) as GitHubRepo[];
+    const repos = data.filter(r => r.topics?.includes('portfolio'));
+    const languages = await Promise.all(repos.map(r => fetchLanguages(r.languages_url)));
+    return repos.map((r, i) => ({
+      ...r,
+      languages: languages[i].length > 0 ? languages[i] : r.language ? [r.language] : [],
+    }));
   } catch {
     return [];
   }

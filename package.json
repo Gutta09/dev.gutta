@@ -10,6 +10,10 @@
   },
   "dependencies": {
     "@astrojs/vercel": "^10.0.8",
+    "@fontsource/inter": "^5.2.8",
+    "@fontsource/jetbrains-mono": "^5.2.8",
+    "@fontsource/rubik": "^5.2.8",
+    "@fontsource/space-grotesk": "^5.2.10",
     "@tailwindcss/typography": "^0.5.9",
     "astro": "^6.4.4",
     "autoprefixer": "^10.4.14",

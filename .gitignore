@@ -27,3 +27,6 @@ chatbot-lambda/.env
 
 # jetbrains setting folder
 .idea/
+
+# vercel build output
+.vercel/

@@ -1,41 +1,25 @@
 ---
-import '../styles/global.css';
-import Navbar from '../components/Navbar.astro';
-import About from "../components/About.astro";
+import Layout from '../layouts/Layout.astro';
+import About from '../components/About.astro';
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="generator" content={Astro.generator} />
-    <meta name="description" content="Hi! I'm Bhargav Gutta, a full stack developer. Check out my projects, blogs, and what I'm currently working on.">
-    <meta property="og:title" content="Bhargav Gutta">
-    <meta property="og:description" content="Bhargav Gutta's Portfolio">
-    <meta property="og:image" content="/newWebsite.jpg">
-    <meta property="og:url" content="https://dev.gutta.com">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Bhargav Gutta">
-    <meta name="twitter:description" content="Bhargav Gutta's Portfolio">
-    <script type="application/ld+json" is:inline>
-      {
-        "@context": "https://schema.org/",
-        "@type": "Person",
-        "name": "Bhargav Gutta",
-        "url": "https://dev.gutta.com/",
-        "sameAs": [
-          "https://www.linkedin.com/in/bhargavgutta/",
-          "https://github.com/Gutta09",
-          "https://dev.gutta.com/"
-        ],
-        "jobTitle": "Full Stack Developer"
-      }
-    </script>
-    <title>Bhargav Gutta</title>
-  </head>
-  <body class="bg-white dark:bg-[#121212] min-h-screen pt-14">
-    <Navbar />
-    <About />
-  </body>
-</html>
+<Layout
+  title="Bhargav Gutta"
+  description="Hi! I'm Bhargav Gutta, a full stack developer. Check out my projects and what I'm currently working on."
+>
+  <script type="application/ld+json" is:inline>
+    {
+      "@context": "https://schema.org/",
+      "@type": "Person",
+      "name": "Bhargav Gutta",
+      "url": "https://dev-gutta.vercel.app/",
+      "sameAs": [
+        "https://www.linkedin.com/in/bhargavgutta/",
+        "https://github.com/Gutta09",
+        "https://dev-gutta.vercel.app/"
+      ],
+      "jobTitle": "Full Stack Developer"
+    }
+  </script>
+  <About />
+</Layout>
