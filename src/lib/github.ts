@@ -64,7 +64,13 @@ async function fetchLanguages(url: string): Promise<string[]> {
   }
 }
 
+// cache per server instance: GitHub allows only 60 unauthenticated requests/hour
+// and each uncached render costs ~9 (repo list + languages per repo)
+let cache: { repos: GitHubRepo[]; at: number } | null = null;
+const CACHE_TTL_MS = 10 * 60 * 1000;
+
 export async function fetchPortfolioRepos(username = 'Gutta09'): Promise<GitHubRepo[]> {
+  if (cache && Date.now() - cache.at < CACHE_TTL_MS) return cache.repos;
   try {
     // list repos directly (instead of the search API) so new topics apply immediately
     const res = await fetch(
@@ -75,10 +81,12 @@ export async function fetchPortfolioRepos(username = 'Gutta09'): Promise<GitHubR
     const data = (await res.json()) as GitHubRepo[];
     const repos = data.filter(r => r.topics?.includes('portfolio'));
     const languages = await Promise.all(repos.map(r => fetchLanguages(r.languages_url)));
-    return repos.map((r, i) => ({
+    const result = repos.map((r, i) => ({
       ...r,
       languages: languages[i].length > 0 ? languages[i] : r.language ? [r.language] : [],
     }));
+    if (result.length > 0) cache = { repos: result, at: Date.now() };
+    return result;
   } catch {
     return [];
   }

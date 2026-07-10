@@ -32,6 +32,7 @@
   --topbar-bg: rgba(255, 255, 255, 0.9);
   --footer-bg: #1a1a1a;
   --card-shadow: rgba(29, 30, 32, 0.10);
+  --pattern-fill: rgba(29, 30, 32, 0.08);
 
   --font-heading: 'Space Grotesk', sans-serif;
   --font-body: 'Rubik', sans-serif;
@@ -56,6 +57,21 @@
   --topbar-bg: rgba(15, 16, 18, 0.85);
   --footer-bg: #17181c;
   --card-shadow: rgba(0, 0, 0, 0.45);
+  --pattern-fill: rgba(255, 255, 255, 0.07);
+}
+
+/* ── Site-wide background pattern (grid + fade-y mask) ── */
+.bg-pattern {
+  position: fixed;
+  inset: 0;
+  z-index: -10;
+  pointer-events: none;
+  background-image:
+    linear-gradient(to right, var(--pattern-fill) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--pattern-fill) 1px, transparent 1px);
+  background-size: 32px 32px;
+  -webkit-mask-image: radial-gradient(ellipse 120% 90% at center, #000 30%, transparent 85%);
+  mask-image: radial-gradient(ellipse 120% 90% at center, #000 30%, transparent 85%);
 }
 
 *, *::before, *::after { box-sizing: border-box; }
