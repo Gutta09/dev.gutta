@@ -342,6 +342,45 @@ h1, h2, h3, h4 {
   -webkit-backdrop-filter: blur(8px);
 }
 
+/* thin gradient reading-progress bar under the navbar */
+.scroll-progress {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 100%;
+  background: linear-gradient(90deg, var(--accent), var(--deep-pink, #fc5185));
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+/* nav links: gradient underline slides in on hover */
+.nav-link {
+  position: relative;
+  padding-bottom: 4px;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 100%;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--accent), transparent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+.nav-link:hover::after,
+.nav-link.active::after { transform: scaleX(1); }
+
+/* logo robot hops on hover */
+.logo-link .mini-bot { transition: transform 0.2s ease; }
+.logo-link:hover .mini-bot { transform: translateY(-4px) rotate(-8deg); }
+
 /* ── Mini robot mascot ────────────────────────────────── */
 .mini-bot {
   width: 28px;
@@ -367,12 +406,48 @@ h1, h2, h3, h4 {
 :root:not([data-theme='dark']) .icon-moon { display: none; }
 :root[data-theme='dark'] .icon-sun { display: none; }
 
-/* ── Footer (dark) ────────────────────────────────────── */
+/* ── Footer ───────────────────────────────────────────── */
 .site-footer {
+  position: relative;
+  overflow: hidden;
   background: var(--footer-bg);
   color: var(--footer-text);
   margin-top: 120px;
   border-radius: 2.5rem 2.5rem 0 0;
+}
+/* dot texture across the footer */
+.site-footer::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: radial-gradient(var(--pattern-fill) 1px, transparent 1px);
+  background-size: 22px 22px;
+  -webkit-mask-image: linear-gradient(to bottom, #000, transparent 80%);
+  mask-image: linear-gradient(to bottom, #000, transparent 80%);
+}
+/* soft breathing accent glow in the corner */
+.footer-glow {
+  position: absolute;
+  top: -220px;
+  right: -160px;
+  width: 620px;
+  height: 620px;
+  border-radius: 50%;
+  pointer-events: none;
+  background: radial-gradient(circle, var(--footer-glow-color) 0%, transparent 68%);
+  filter: blur(50px);
+  animation: breathe 9s ease-in-out infinite;
+}
+:root { --footer-glow-color: rgba(103, 61, 230, 0.16); }
+:root[data-theme='dark'] { --footer-glow-color: rgba(140, 133, 255, 0.22); }
+
+/* gradient text accent */
+.grad-text {
+  background: linear-gradient(90deg, var(--accent), #fc5185);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 :root[data-theme='dark'] .site-footer {
   border-top: 1px solid var(--border);
