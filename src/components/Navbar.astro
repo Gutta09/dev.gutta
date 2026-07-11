@@ -11,7 +11,7 @@ const isActive = (href: string) =>
 
 <header class="topbar fixed top-0 inset-x-0 z-50">
   <nav class="max-w-5xl mx-auto px-6 sm:px-8 h-20 flex items-center justify-between">
-    <a href="/" class="logo-link flex items-center gap-3 text-lg font-medium text-[var(--text)]" style="font-family: var(--font-heading)">
+    <a href="/" class="flex items-center gap-3 text-lg font-medium text-[var(--text)]" style="font-family: var(--font-heading)">
       <img src="/mini.gif" alt="" width="28" height="28" class="mini-bot" />
       Bhargav Gutta
     </a>
@@ -23,9 +23,9 @@ const isActive = (href: string) =>
             <a
               href={link.href}
               class:list={[
-                'nav-link text-[15px] font-medium',
+                'text-[15px] font-medium transition-colors',
                 isActive(link.href)
-                  ? 'active text-[var(--text)]'
+                  ? 'text-[var(--text)] border-b-2 border-[var(--text)] pb-0.5'
                   : 'text-[var(--text-muted)] hover:text-[var(--text)]',
               ]}
             >
@@ -60,7 +60,6 @@ const isActive = (href: string) =>
       </button>
     </div>
   </nav>
-  <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
 
   <div id="nav-mobile-panel" class="hidden sm:hidden border-t border-[var(--border)] bg-[var(--bg)]">
     <ul class="max-w-5xl mx-auto px-6 py-6 flex flex-col gap-5" style="font-family: var(--font-heading)">
@@ -87,14 +86,6 @@ const isActive = (href: string) =>
     iconOpen?.classList.toggle('hidden');
     iconClose?.classList.toggle('hidden');
   });
-
-  const progress = document.getElementById('scroll-progress');
-  const updateProgress = () => {
-    const max = document.documentElement.scrollHeight - innerHeight;
-    progress.style.transform = `scaleX(${max > 0 ? scrollY / max : 0})`;
-  };
-  addEventListener('scroll', updateProgress, { passive: true });
-  updateProgress();
 
   document.getElementById('theme-toggle')?.addEventListener('click', () => {
     const root = document.documentElement;
