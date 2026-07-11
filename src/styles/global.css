@@ -76,6 +76,11 @@
   background-size: 32px 32px;
   -webkit-mask-image: radial-gradient(ellipse 120% 90% at center, #000 30%, transparent 85%);
   mask-image: radial-gradient(ellipse 120% 90% at center, #000 30%, transparent 85%);
+  animation: breathe 7s ease-in-out infinite;
+}
+@keyframes breathe {
+  0%, 100% { opacity: 0.45; }
+  50% { opacity: 1; }
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -327,7 +332,7 @@ h1, h2, h3, h4 {
 .reveal.visible { opacity: 1; transform: none; }
 @media (prefers-reduced-motion: reduce) {
   .reveal { opacity: 1; transform: none; transition: none; }
-  .wave, .portrait-wrap::before, .marquee-track { animation: none; }
+  .wave, .marquee-track, .bg-pattern { animation: none; }
 }
 
 /* ── Topbar ───────────────────────────────────────────── */
