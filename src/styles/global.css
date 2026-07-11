@@ -133,9 +133,42 @@ h1, h2, h3, h4 {
   color: var(--text-muted);
 }
 
-/* accent-highlighted word in headings */
-.hl {
-  color: var(--accent);
+/* ── Aurora: flowing gradient text + breathing blobs ──── */
+/* palette from sathwikbatta.com's aurora effect */
+.aurora-text {
+  background-image: linear-gradient(135deg, #3b82f6, #1e40af, #6366f1, #4f46e5, #3b82f6);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: aurora-shift 6s ease-in-out infinite;
+}
+@keyframes aurora-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.aurora-blob {
+  position: fixed;
+  z-index: -20;
+  pointer-events: none;
+  width: 34rem;
+  height: 34rem;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #3b82f6, #6366f1, #4f46e5);
+  filter: blur(110px);
+  opacity: var(--blob-opacity);
+  animation: aurora 16s ease-in-out infinite;
+}
+.aurora-blob.one { top: -14rem; right: -10rem; }
+.aurora-blob.two { bottom: -16rem; left: -12rem; animation-delay: -8s; }
+:root { --blob-opacity: 0.14; }
+:root[data-theme='dark'] { --blob-opacity: 0.17; }
+@keyframes aurora {
+  0%, 100% { transform: rotate(-5deg) scale(0.9); }
+  25% { transform: rotate(5deg) scale(1.1); }
+  50% { transform: rotate(-3deg) scale(0.95); }
+  75% { transform: rotate(3deg) scale(1.05); }
 }
 
 /* ── Waving hand ──────────────────────────────────────── */
@@ -332,7 +365,7 @@ h1, h2, h3, h4 {
 .reveal.visible { opacity: 1; transform: none; }
 @media (prefers-reduced-motion: reduce) {
   .reveal { opacity: 1; transform: none; transition: none; }
-  .wave, .marquee-track, .bg-pattern { animation: none; }
+  .wave, .marquee-track, .bg-pattern, .aurora-text, .aurora-blob, .footer-glow { animation: none; }
 }
 
 /* ── Topbar ───────────────────────────────────────────── */
@@ -349,7 +382,7 @@ h1, h2, h3, h4 {
   bottom: 0;
   height: 2px;
   width: 100%;
-  background: linear-gradient(90deg, var(--accent), var(--deep-pink, #fc5185));
+  background: linear-gradient(90deg, #3b82f6, #6366f1, #4f46e5);
   transform: scaleX(0);
   transform-origin: left;
 }
@@ -439,16 +472,9 @@ h1, h2, h3, h4 {
   filter: blur(50px);
   animation: breathe 9s ease-in-out infinite;
 }
-:root { --footer-glow-color: rgba(103, 61, 230, 0.16); }
-:root[data-theme='dark'] { --footer-glow-color: rgba(140, 133, 255, 0.22); }
+:root { --footer-glow-color: rgba(79, 70, 229, 0.14); }
+:root[data-theme='dark'] { --footer-glow-color: rgba(99, 102, 241, 0.20); }
 
-/* gradient text accent */
-.grad-text {
-  background: linear-gradient(90deg, var(--accent), #fc5185);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
 :root[data-theme='dark'] .site-footer {
   border-top: 1px solid var(--border);
 }
