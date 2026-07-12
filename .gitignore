@@ -32,3 +32,4 @@ chatbot-lambda/.env
 .vercel/
 .vercel
 .env*
+showcase.html

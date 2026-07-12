@@ -1,35 +1,37 @@
 ---
-import { fetchPortfolioRepos, formatRepoName } from '../lib/github';
-import staticProjects from '../data/projects.js';
-
-const githubRepos = await fetchPortfolioRepos();
-
-// Hand-picked flagship projects for the home page, strongest first.
-// Everything else still shows on /projects.
-const FEATURED = ['fin-fraud-shield', 'ferrum', 'fitero', 'courses', 'xpensit'];
-const featuredRepos = FEATURED
-  .map(name => githubRepos.find(r => r.name.toLowerCase() === name))
-  .filter(r => r !== undefined);
-const heroRepos = featuredRepos.length > 0 ? featuredRepos : githubRepos.slice(0, 4);
-
-// Use GitHub repos if available, otherwise fall back to static data
-const projects = heroRepos.length > 0
-  ? heroRepos.map(r => ({
-      name: formatRepoName(r.name),
-      description: r.description ?? '',
-      url: r.html_url,
-      live: r.homepage?.startsWith('http') ? r.homepage : null,
-      languages: r.languages,
-      topics: r.topics.filter(t => t !== 'portfolio'),
-    }))
-  : staticProjects.map((p: { title: string; description: string; link: string }) => ({
-      name: p.title,
-      description: p.description,
-      url: p.link,
-      live: null,
-      languages: [],
-      topics: [],
-    }));
+// Curated flagship work — three projects, each with a real in-app screenshot.
+const projects = [
+  {
+    name: 'PriceIQ',
+    kind: 'Optimization · Operations Research',
+    description:
+      'Airline fare optimization: an OR-Tools mixed-integer program prices three cabins jointly under a shared aircraft-capacity constraint, on demand curves grounded in real DGCA market data. 27 tests, green CI.',
+    image: '/work/priceiq.png',
+    tech: ['FastAPI', 'OR-Tools', 'React', 'Python'],
+    url: 'https://github.com/Gutta09/priceIQ',
+    live: null,
+  },
+  {
+    name: 'Studium AI',
+    kind: 'AI Agent',
+    description:
+      'An adaptive study agent — upload a syllabus, get a plan and quizzes, and it re-plans around the topics your quizzes show you are weak on. Real agentic loop, JWT auth with per-user isolation, verified end-to-end against a live model.',
+    image: '/work/studium.png',
+    tech: ['FastAPI', 'React', 'Groq · Llama 3.3', 'MongoDB'],
+    url: 'https://github.com/Gutta09/studium-ai',
+    live: null,
+  },
+  {
+    name: 'Ferrum',
+    kind: 'Product · Full-stack',
+    description:
+      'A quiet, fast workout log — type “bench 3×8 @ 80” and it parses into sets, with your previous numbers and a live plate-loading breakdown on every row. Owner-scoped data, unit-tested training math, ships to iOS via Capacitor.',
+    image: '/work/ferrum.png',
+    tech: ['Next.js', 'TypeScript', 'MongoDB', 'Capacitor · iOS'],
+    url: 'https://github.com/Gutta09/ferrum',
+    live: 'https://workout-tracker-iota-weld.vercel.app',
+  },
+];
 
 const skillsA = ['JavaScript', 'TypeScript', 'Python', 'SQL', 'React', 'Next.js', 'Node.js', 'Express.js', 'Astro'];
 const skillsB = ['MongoDB', 'PostgreSQL', 'MySQL', 'Tailwind CSS', 'AWS Lambda', 'Git', 'Vercel', 'OpenAI API', 'REST APIs'];
@@ -85,19 +87,18 @@ const skillsB = ['MongoDB', 'PostgreSQL', 'MySQL', 'Tailwind CSS', 'AWS Lambda',
   <div class="space-y-8">
     {projects.map((project, i) => (
       <article class={`tint-card tint-${i % 5} reveal`}>
+        <div class="work-shot mb-8">
+          <img src={project.image} alt={`${project.name} — screenshot of the running app`} loading="lazy" width="1200" />
+        </div>
         <div class="grid sm:grid-cols-[auto_1fr] gap-6 sm:gap-12 items-start">
           <span class="project-number">{String(i + 1).padStart(2, '0')}</span>
           <div>
+            <p class="section-label mb-3 card-accent">{project.kind}</p>
             <h3 class="display-md mb-3">{project.name}</h3>
-            {project.description && (
-              <p class="lead !text-[var(--text)] !opacity-75 max-w-2xl mb-5">{project.description}</p>
-            )}
-            {(project.topics.length > 0 || project.languages.length > 0) && (
-              <div class="flex flex-wrap gap-2 mb-6">
-                {project.languages.map(lang => <span class="chip">{lang}</span>)}
-                {project.topics.slice(0, 4).map(topic => <span class="chip">{topic}</span>)}
-              </div>
-            )}
+            <p class="lead !text-[var(--text)] !opacity-75 max-w-2xl mb-5">{project.description}</p>
+            <div class="flex flex-wrap gap-2 mb-6">
+              {project.tech.map(t => <span class="chip">{t}</span>)}
+            </div>
             <div class="flex flex-wrap items-center gap-6">
               <a href={project.url} target="_blank" rel="noopener noreferrer" class="link-arrow card-accent">
                 View on GitHub <span aria-hidden="true">→</span>
@@ -115,9 +116,25 @@ const skillsB = ['MongoDB', 'PostgreSQL', 'MySQL', 'Tailwind CSS', 'AWS Lambda',
   </div>
 
   <div class="mt-12 flex justify-center reveal">
-    <a href="/projects" class="btn-outline">See all projects →</a>
+    <a href="https://github.com/Gutta09" target="_blank" rel="noopener noreferrer" class="btn-outline">More on GitHub →</a>
   </div>
 </section>
+
+<style>
+  .work-shot {
+    border-radius: 1rem;
+    overflow: hidden;
+    border: 1px solid var(--card-border, rgba(0,0,0,0.08));
+    box-shadow: 0 10px 30px -12px var(--card-shadow, rgba(0,0,0,0.25));
+    background: var(--bg);
+    line-height: 0;
+  }
+  .work-shot img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+</style>
 
 <!-- Experience -->
 <section class="pb-20 sm:pb-28">
