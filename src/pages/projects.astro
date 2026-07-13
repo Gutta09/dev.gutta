@@ -1,0 +1,116 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// Secondary projects — the fuller list beyond the three flagship builds.
+const moreProjects = [
+  {
+    name: 'LearnWave',
+    kind: 'AI Course Generator',
+    description:
+      'Turn any topic into a full course — AI-written lessons and quizzes with curated YouTube videos and a progress heatmap.',
+    tech: ['Next.js', 'MongoDB', 'OpenAI'],
+    url: 'https://github.com/Gutta09/courses',
+    live: 'https://courses-sigma-pink.vercel.app',
+  },
+  {
+    name: 'ResAI',
+    kind: 'RAG · Research Assistant',
+    description:
+      'Multi-document research assistant — ask questions across a corpus and get cited answers via a FAISS-backed retrieval pipeline.',
+    tech: ['FastAPI', 'LangChain', 'FAISS', 'React'],
+    url: 'https://github.com/Gutta09/resai',
+    live: null,
+  },
+  {
+    name: 'Emla',
+    kind: 'ML · Accessibility',
+    description:
+      'Real-time ASL sign-language recognition from webcam landmarks, with a Transformer classifier and Gemini for phrasing.',
+    tech: ['MediaPipe', 'Transformer', 'Gemini'],
+    url: 'https://github.com/Gutta09/Emla',
+    live: null,
+  },
+  {
+    name: 'Progresso',
+    kind: 'Project Management',
+    description:
+      'A full-stack project and task manager with boards and a typed FastAPI backend behind a Vite frontend.',
+    tech: ['FastAPI', 'React', 'Vite'],
+    url: 'https://github.com/Gutta09/progresso',
+    live: null,
+  },
+  {
+    name: 'Expensify',
+    kind: 'AI Fintech',
+    description:
+      'Expense tracker with ML anomaly detection, budget forecasting, Power BI dashboards, and PDF export.',
+    tech: ['MERN', 'Python', 'Power BI'],
+    url: 'https://github.com/Gutta09/expensify',
+    live: null,
+  },
+];
+---
+<Layout
+  title="Projects · Bhargav Gutta"
+  description="More projects by Bhargav Gutta — AI, full-stack, and ML builds beyond the flagship three."
+>
+  <p class="section-label mb-4">Beyond the flagship three</p>
+  <h1 class="display-lg mb-4">More Projects</h1>
+  <p class="lead max-w-2xl mb-14">
+    A wider look at what I've built — AI tools, full-stack apps, and ML experiments.
+    Each links out to its source.
+  </p>
+
+  <div class="grid sm:grid-cols-2 gap-5 sm:gap-6">
+    {moreProjects.map(project => (
+      <article class="mini-card reveal">
+        <div>
+          <p class="section-label mb-3 mini-accent">{project.kind}</p>
+          <h3 class="display-md !text-2xl mb-3">{project.name}</h3>
+          <p class="lead !text-[var(--text)] !opacity-70 !text-base mb-5">{project.description}</p>
+          <div class="flex flex-wrap gap-2 mb-6">
+            {project.tech.map(t => <span class="chip !bg-[var(--bg)]">{t}</span>)}
+          </div>
+        </div>
+        <div class="flex flex-wrap items-center gap-6">
+          <a href={project.url} target="_blank" rel="noopener noreferrer" class="link-arrow mini-accent">
+            Source <span aria-hidden="true">→</span>
+          </a>
+          {project.live && (
+            <a href={project.live} target="_blank" rel="noopener noreferrer" class="link-arrow mini-accent">
+              Live <span aria-hidden="true">→</span>
+            </a>
+          )}
+        </div>
+      </article>
+    ))}
+  </div>
+
+  <div class="mt-12 flex flex-wrap items-center gap-6">
+    <a href="/#work" class="btn-outline">← Back to flagship work</a>
+    <a href="https://github.com/Gutta09" target="_blank" rel="noopener noreferrer" class="link-arrow">
+      Everything on GitHub <span aria-hidden="true">→</span>
+    </a>
+  </div>
+</Layout>
+
+<style>
+  .mini-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1.5rem;
+    background: var(--bg-soft);
+    border: 1px solid var(--border);
+    border-radius: 1.5rem;
+    padding: clamp(24px, 3vw, 34px);
+    height: 100%;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  }
+  .mini-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 24px 48px var(--card-shadow);
+    border-color: var(--accent);
+  }
+  .mini-accent { color: var(--accent); }
+</style>
