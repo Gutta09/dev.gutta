@@ -349,6 +349,15 @@ h1, h2, h3, h4 {
   image-rendering: pixelated;
 }
 
+/* ── Pet mascot ───────────────────────────────────────── */
+/* Source sprite is 192×208, so the width is set off the height to keep the
+   aspect ratio rather than squaring it off like .mini-bot. */
+.pet-bot {
+  width: 26px;
+  height: 28px;
+  image-rendering: pixelated;
+}
+
 /* ── Theme toggle ─────────────────────────────────────── */
 .icon-btn {
   display: inline-flex;
