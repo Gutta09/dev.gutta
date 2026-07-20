@@ -1,6 +1,71 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import About from '../components/About.astro';
+
+const projects = [
+  {
+    name: 'PriceIQ',
+    kind: 'Optimization · OR',
+    description:
+      'Airline fare optimization — an OR-Tools mixed-integer program prices three cabins jointly under a shared capacity constraint, on demand curves from real DGCA data. 27 tests, green CI.',
+    image: '/work/priceiq.png',
+    tech: ['FastAPI', 'OR-Tools', 'React', 'Python'],
+    url: 'https://github.com/Gutta09/priceIQ',
+  },
+  {
+    name: 'Studium AI',
+    kind: 'AI Agent',
+    description:
+      'An adaptive study agent — upload a syllabus, get a plan and quizzes, and it re-plans around the topics your quizzes show you are weak on. Real agentic loop, JWT auth, verified end-to-end.',
+    image: '/work/studium.png',
+    tech: ['FastAPI', 'React', 'Groq · Llama 3.3', 'MongoDB'],
+    url: 'https://github.com/Gutta09/studium-ai',
+  },
+  {
+    name: 'Ferrum',
+    kind: 'Product · Full-stack',
+    description:
+      'A quiet, fast workout log — type “bench 3×8 @ 80” and it parses into sets, with your previous numbers and a live plate-loading breakdown on every row. Ships to iOS via Capacitor.',
+    image: '/work/ferrum.png',
+    tech: ['Next.js', 'TypeScript', 'MongoDB', 'Capacitor'],
+    url: 'https://github.com/Gutta09/ferrum',
+  },
+];
+
+const skills = [
+  'JavaScript', 'TypeScript', 'Python', 'SQL', 'React', 'Next.js', 'Node.js', 'Express.js',
+  'FastAPI', 'Tailwind CSS', 'MongoDB', 'PostgreSQL', 'MySQL', 'REST APIs', 'JWT Auth',
+  'AWS Lambda', 'OpenAI API', 'Git', 'Vercel', 'Astro',
+];
+
+const experience = [
+  {
+    logo: 'ED',
+    title: 'Edubot Technologies',
+    date: 'Jun – Jul 2025',
+    role: 'Full Stack Developer Intern · Remote',
+    points: [
+      'Completed an 8-week MERN program, shipping a production-ready full-stack app end to end.',
+      'Built a Node/Express REST API on MongoDB Atlas with JWT auth, RBAC, and server-side validation.',
+      'Built the React + Vite front end with protected routes, real-time state, and CSV export.',
+    ],
+  },
+];
+
+const education = [
+  {
+    logo: 'SRM',
+    title: 'SRM University AP',
+    date: '2023 – 2027',
+    role: 'B.Tech, Computer Science & Engineering · Amaravati · CGPA 7.54 / 10',
+    points: ['Semester exchange at INTI International University, Malaysia (CGPA 8.0 / 10).'],
+  },
+];
+
+const certs = [
+  { logo: 'JA', title: 'Oracle Certified Professional: Java SE 17 Developer', date: 'Oracle' },
+  { logo: 'DB', title: 'MongoDB Associate Developer', date: 'MongoDB' },
+  { logo: 'CN', title: 'CCNA: Introduction to Networks', date: 'Cisco' },
+];
 ---
 
 <Layout
@@ -22,5 +87,131 @@ import About from '../components/About.astro';
       "jobTitle": "Full Stack Developer"
     }
   </script>
-  <About />
+
+  <div class="grid-hero" aria-hidden="true"></div>
+
+  <!-- Hero -->
+  <section class="hero-center pb-20 sm:pb-28">
+    <div class="avatar-ring">
+      <div class="avatar"><span>BG</span></div>
+    </div>
+    <h1 class="hero-title">Hi, I'm Bhargav <span class="wave">👋</span></h1>
+    <p class="hero-lead">
+      Full Stack Developer and CS undergrad at <a href="https://srmap.edu.in/" target="_blank" rel="noopener noreferrer">SRM University AP</a>.
+      I build full-stack web apps end to end and like weaving AI into products that actually ship —
+      from OR-Tools optimizers to agentic study tools. I keep my problem-solving sharp on
+      <a href="https://leetcode.com/u/ySH4mNLSXa/" target="_blank" rel="noopener noreferrer">LeetCode</a>,
+      and interned as a full-stack dev at Edubot Technologies. Outside code — gym, reading, and games.
+    </p>
+    <div class="flex flex-wrap items-center justify-center gap-4 mt-9">
+      <a href="mailto:bhargavgutta910@gmail.com" class="btn-solid">Get in touch</a>
+      <a href="/resume.pdf" download class="btn-outline">Resume ↓</a>
+    </div>
+  </section>
+
+  <!-- Work -->
+  <section id="work" class="pb-20 sm:pb-28 scroll-mt-24">
+    <div class="head-center reveal">
+      <h2>Check out my latest <span class="accent-word">work</span></h2>
+    </div>
+    <div class="proj-grid reveal">
+      {projects.map(p => (
+        <a href={p.url} target="_blank" rel="noopener noreferrer" class="proj-card">
+          <div class="proj-shot">
+            <img src={p.image} alt={`${p.name} — screenshot`} loading="lazy" width="1200" height="750" />
+          </div>
+          <div class="proj-body">
+            <span class="proj-kind">{p.kind}</span>
+            <span class="proj-name">{p.name}</span>
+            <p class="proj-desc">{p.description}</p>
+            <div class="proj-tags">
+              {p.tech.map(t => <span class="proj-tag">{t}</span>)}
+            </div>
+          </div>
+        </a>
+      ))}
+    </div>
+    <div class="mt-12 flex flex-wrap items-center justify-center gap-5 reveal">
+      <a href="/projects" class="btn-solid">See more projects →</a>
+      <a href="https://github.com/Gutta09" target="_blank" rel="noopener noreferrer" class="btn-outline">More on GitHub →</a>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section class="pb-20 sm:pb-28">
+    <div class="head-center reveal">
+      <h2>Skills &amp; <span class="accent-word">tools</span></h2>
+    </div>
+    <div class="skill-cloud reveal">
+      {skills.map(s => <span class="pill">{s}</span>)}
+    </div>
+  </section>
+
+  <!-- Experience -->
+  <section class="pb-20 sm:pb-28">
+    <div class="head-center reveal">
+      <h2>Work <span class="accent-word">experience</span></h2>
+    </div>
+    <div class="timeline reveal">
+      {experience.map(e => (
+        <div class="tl-item">
+          <div class="tl-logo">{e.logo}</div>
+          <div>
+            <div class="tl-head">
+              <span class="tl-title">{e.title}</span>
+              <span class="tl-date">{e.date}</span>
+            </div>
+            <p class="tl-role">{e.role}</p>
+            <ul class="tl-body list-disc pl-5">
+              {e.points.map(pt => <li>{pt}</li>)}
+            </ul>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Education -->
+  <section class="pb-20 sm:pb-28">
+    <div class="head-center reveal">
+      <h2><span class="accent-word">Education</span></h2>
+    </div>
+    <div class="timeline reveal">
+      {education.map(e => (
+        <div class="tl-item">
+          <div class="tl-logo">{e.logo}</div>
+          <div>
+            <div class="tl-head">
+              <span class="tl-title">{e.title}</span>
+              <span class="tl-date">{e.date}</span>
+            </div>
+            <p class="tl-role">{e.role}</p>
+            <ul class="tl-body list-disc pl-5">
+              {e.points.map(pt => <li>{pt}</li>)}
+            </ul>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Certifications -->
+  <section>
+    <div class="head-center reveal">
+      <h2><span class="accent-word">Certifications</span></h2>
+    </div>
+    <div class="timeline reveal">
+      {certs.map(c => (
+        <div class="tl-item">
+          <div class="tl-logo">{c.logo}</div>
+          <div>
+            <div class="tl-head">
+              <span class="tl-title">{c.title}</span>
+              <span class="tl-date">{c.date}</span>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
 </Layout>

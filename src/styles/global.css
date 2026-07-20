@@ -41,10 +41,10 @@
 }
 
 :root[data-theme='dark'] {
-  --bg: #0f1012;
-  --bg-soft: #1b1c20;
-  --border: #2b2c31;
-  --text: #f0f0f2;
+  --bg: #08090b;
+  --bg-soft: #131418;
+  --border: #26272d;
+  --text: #f4f4f6;
   --text-muted: #9a9dab;
   --accent: #8c85ff;
   --accent-dark: #a49eff;
@@ -417,3 +417,241 @@ h1, h2, h3, h4 {
   transition: color 0.2s ease;
 }
 .soft-link:hover { color: var(--accent); }
+
+/* ══════════════════════════════════════════════════════════
+   Hallmark · study(sathwikbatta.com) — DNA applied to Bhargav's content
+   macrostructure: Centered Marquee Hero · nav: Floating Dock · theme: Midnight-leaning
+   emphasis: accent-weight (no italic headers) · anchor hue: cool-indigo
+   ══════════════════════════════════════════════════════════ */
+
+/* ── Denser hero grid canvas (reference: subtle lit cells) ── */
+.grid-hero {
+  position: fixed;
+  inset: 0;
+  z-index: -9;
+  pointer-events: none;
+  background-image:
+    linear-gradient(to right, var(--pattern-fill) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--pattern-fill) 1px, transparent 1px);
+  background-size: 46px 46px;
+  -webkit-mask-image: radial-gradient(ellipse 80% 55% at 50% 32%, #000 0%, transparent 72%);
+  mask-image: radial-gradient(ellipse 80% 55% at 50% 32%, #000 0%, transparent 72%);
+  opacity: 0.7;
+}
+
+/* ── Centered hero ─────────────────────────────────────── */
+.hero-center { text-align: center; padding-top: clamp(24px, 8vh, 90px); }
+
+.avatar-ring {
+  --ring: 118px;
+  width: var(--ring);
+  height: var(--ring);
+  margin: 0 auto 26px;
+  border-radius: 50%;
+  padding: 3px;
+  background: conic-gradient(from 210deg, var(--deep-lavender), var(--deep-blue), var(--deep-mint), var(--deep-cream), var(--deep-pink), var(--deep-lavender));
+  box-shadow: 0 12px 40px -12px var(--card-shadow);
+}
+.avatar {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--bg-soft);
+  color: var(--text);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 2.4rem;
+  letter-spacing: 0.02em;
+  overflow: hidden;
+}
+.avatar img { width: 100%; height: 100%; object-fit: cover; }
+
+.hero-title {
+  font-family: var(--font-heading);
+  font-size: clamp(2.4rem, 7vw, 5rem);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  overflow-wrap: anywhere;
+}
+.hero-lead {
+  font-size: clamp(15px, 2vw, 18px);
+  font-weight: 400;
+  line-height: 1.75;
+  color: var(--text-muted);
+  max-width: 46rem;
+  margin: 22px auto 0;
+}
+.hero-lead a {
+  color: var(--text);
+  text-decoration: none;
+  border-bottom: 1.5px solid var(--accent);
+  padding-bottom: 1px;
+  transition: color 0.2s ease;
+}
+.hero-lead a:hover { color: var(--accent); }
+
+/* ── Centered section head with accent word ────────────── */
+.head-center { text-align: center; margin-bottom: 44px; }
+.head-center h2 {
+  font-family: var(--font-heading);
+  font-size: clamp(1.9rem, 4.5vw, 3rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+.accent-word { color: var(--accent); }
+
+/* ── Skill cloud (centered wrap, replaces marquee vibe) ── */
+.skill-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  max-width: 52rem;
+  margin: 0 auto;
+}
+.skill-cloud .pill { font-size: 14px; padding: 8px 18px; background: var(--bg-soft); border: 1px solid var(--border); }
+
+/* ── Timeline (experience · education · certifications) ── */
+.timeline { max-width: 46rem; margin: 0 auto; position: relative; }
+.tl-item {
+  position: relative;
+  display: grid;
+  grid-template-columns: 52px 1fr;
+  gap: 20px;
+  padding-bottom: 30px;
+}
+.tl-item:last-child { padding-bottom: 0; }
+.tl-item::before {
+  content: '';
+  position: absolute;
+  left: 25px;
+  top: 56px;
+  bottom: 6px;
+  width: 2px;
+  background: var(--border);
+}
+.tl-item:last-child::before { display: none; }
+.tl-logo {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+  background: var(--bg-soft);
+  border: 1px solid var(--border);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--accent);
+}
+.tl-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 6px; }
+.tl-title { font-family: var(--font-heading); font-weight: 600; font-size: 1.1rem; }
+.tl-date { font-family: var(--font-heading); font-size: 13px; color: var(--text-muted); white-space: nowrap; }
+.tl-role { font-family: var(--font-heading); font-size: 14px; color: var(--text-muted); margin-top: 2px; }
+.tl-body { font-size: 15px; line-height: 1.7; color: var(--text-muted); margin-top: 8px; }
+.tl-body li { margin-bottom: 3px; }
+
+/* ── Dark project cards ────────────────────────────────── */
+.proj-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 20px; }
+.proj-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-soft);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  overflow: hidden;
+  text-decoration: none;
+  color: var(--text);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+.proj-card:hover { transform: translateY(-6px); box-shadow: 0 24px 48px -18px var(--card-shadow); border-color: var(--accent); }
+.proj-shot { aspect-ratio: 16 / 10; overflow: hidden; background: var(--bg); border-bottom: 1px solid var(--border); }
+.proj-shot img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease; }
+.proj-card:hover .proj-shot img { transform: scale(1.04); }
+.proj-body { padding: 20px 22px 22px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
+.proj-kind { font-family: var(--font-heading); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); }
+.proj-name { font-family: var(--font-heading); font-size: 1.3rem; font-weight: 600; }
+.proj-desc { font-size: 14px; line-height: 1.65; color: var(--text-muted); }
+.proj-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; padding-top: 8px; }
+.proj-tag { font-family: var(--font-heading); font-size: 11.5px; color: var(--text-muted); background: var(--bg); border: 1px solid var(--border); padding: 4px 10px; border-radius: 9999px; }
+
+/* ── Floating dock (primary nav) ───────────────────────── */
+.dock {
+  position: fixed;
+  left: 50%;
+  bottom: 20px;
+  transform: translateX(-50%);
+  z-index: 60;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 10px;
+  border-radius: 9999px;
+  background: var(--topbar-bg);
+  border: 1px solid var(--border);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 16px 40px -12px var(--card-shadow), 0 2px 6px rgba(0,0,0,0.12);
+  max-width: calc(100vw - 24px);
+}
+.dock-item {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  color: var(--text-muted);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: color 0.18s ease, background-color 0.18s ease, transform 0.18s ease;
+}
+.dock-item svg { width: 20px; height: 20px; }
+.dock-item:hover { color: var(--text); background: var(--bg-soft); transform: translateY(-4px); }
+.dock-item.is-active { color: var(--accent); }
+.dock-item.is-active::after {
+  content: '';
+  position: absolute;
+  bottom: 3px;
+  width: 4px; height: 4px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+.dock-item:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.dock-item[data-tip]::before {
+  content: attr(data-tip);
+  position: absolute;
+  bottom: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%) translateY(4px);
+  font-family: var(--font-heading);
+  font-size: 12px;
+  color: var(--text);
+  background: var(--bg-soft);
+  border: 1px solid var(--border);
+  padding: 4px 10px;
+  border-radius: 8px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.18s ease, transform 0.18s ease;
+}
+.dock-item:hover[data-tip]::before { opacity: 1; transform: translateX(-50%) translateY(0); }
+.dock-sep { width: 1px; height: 26px; background: var(--border); margin: 0 4px; }
+@media (max-width: 420px) {
+  .dock { gap: 2px; padding: 7px 8px; }
+  .dock-item { width: 38px; height: 38px; }
+  .dock-item svg { width: 18px; height: 18px; }
+  .dock-sep { margin: 0 2px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .dock-item, .proj-shot img { transition: color 0.18s ease, background-color 0.18s ease; }
+  .dock-item:hover, .proj-card:hover { transform: none; }
+  .grid-hero { animation: none; }
+}
